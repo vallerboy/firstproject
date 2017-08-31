@@ -8,7 +8,9 @@
 <p><h1><center><b>Witaj!</b></center></h1></p>
 
     <form method="post" th:action="@{/form}">
-        <input type="text" th:name="message"/>
+        <input type="text" th:name="name" placeholder="Imie"/>
+        <input type="text" th:name="lastname" placeholder="Nazwisko"/>
+        <input type="number" th:name="age" placeholder="Wiek"/>
         <input type="submit" value="Wyślij">
     </form>
 

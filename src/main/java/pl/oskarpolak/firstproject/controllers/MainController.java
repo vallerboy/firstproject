@@ -1,6 +1,7 @@
 package pl.oskarpolak.firstproject.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -17,8 +18,15 @@ public class MainController {
 
 
     @RequestMapping(path = "/form", method = RequestMethod.POST)
-    @ResponseBody
-    public String form(@RequestParam("message") String message){
-        return "Wiadomość to: " + message;
+    public String form(@RequestParam("name") String name,
+                       @RequestParam("lastname") String lastname,
+                       @RequestParam("age") int age,
+                       Model model){
+        if(age >= 18) {
+            model.addAttribute("message", "Jesteś pełnoletni" );
+        }else{
+            model.addAttribute("message", "Jesteś małolatem" );
+        }
+        return "response";
     }
 }
